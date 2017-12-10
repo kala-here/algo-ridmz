@@ -24,7 +24,7 @@ def find_grants_cap(grants_array, new_budget)
   # sort arr
   orig_arr = grants_array.sort # => [2, 30, 50, 120, 1000]
   arr = orig_arr # => [2, 30, 50, 120, 1000]
-  sum = calc_sum(grants_array) # =>
+  sum = calc_sum(grants_array) # => 1202
   p sum
   if sum <= new_budget
     return orig_arr.last
@@ -35,7 +35,7 @@ def find_grants_cap(grants_array, new_budget)
   temp_cap = new_budget/n # => 38
   # create var for keeping count of changed nums
   ch = 0
-  # iterate thru arr w/o .each built-in
+  # iterate thru arr (w/o .each built-in method)
   i = 0
   while i < n
     # if item is greater than temp_cap, replace with temp_cap and increment num of changed items by 1
@@ -45,17 +45,21 @@ def find_grants_cap(grants_array, new_budget)
     end
     i += 1
   end # => [2, 30, 38, 38, 38] && ch = 3
-  sum = calc_sum(arr)
+  sum = calc_sum(arr) # => 146
+  p sum
 
-  # if sum of arr is equal to new budget, then we are done, if not, we need to disperse the extra funds
+  # if sum of arr is equal to new budget, then we are done, if not, we need to disperce the extra funds
   if sum != new_budget
-    extras = new_budget - sum
+    extras = new_budget - sum # => 44
+    p extras
   else
     return arr.last
   end
-  additional_funds = extras/ch
-  temp_cap += additional_funds
-  orig_arr.map! do |item|
+  additional_funds = extras/ch # => 14
+  p additional_funds
+  temp_cap += additional_funds # => 52
+  p temp_cap
+  orig_arr.each do |item| # => [2, 30, 50, 120, 1000]
    if item > temp_cap
       ch += 1
       item = temp_cap
@@ -63,6 +67,7 @@ def find_grants_cap(grants_array, new_budget)
      item = item
    end
   end
+  p orig_arr
   return orig_arr.last
 end
 __END__
