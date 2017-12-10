@@ -6,38 +6,52 @@
 
 # Analyze the time and space complexities of your solution.
 
-# grants_array = [2, 30, 50, 120, 1000] && new_budget = 190
-def find_grants_cap(grants_array, new_budget)
-  # get num of recipients
-  n = grants_array.length
-  # find temp cap by dividing budget by num of recipients
-  temp_cap = new_budget/n
-  # sort arr
-  orig_arr = grants_array.sort
-  arr = grants_array.sort
-  # create var for keeping count of changed nums
-  ch = 0
-  # iterate thru arr
+def calc_sum(array)
+  # get num of items in array
+  n = array.length
+  # create var for sum of arr
+  total = 0
+  # iterate thru array to add each value to total sum
   i = 0
   while i < n
-    # if item is greater than temp_cap
+    total += array[i]
+    i += 1
+  end
+  total
+end
+# grants_array = [2, 30, 50, 120, 1000] && new_budget = 190
+def find_grants_cap(grants_array, new_budget)
+  # sort arr
+  orig_arr = grants_array.sort # => [2, 30, 50, 120, 1000]
+  arr = orig_arr # => [2, 30, 50, 120, 1000]
+  sum = calc_sum(grants_array) # =>
+  p sum
+  if sum <= new_budget
+    return orig_arr.last
+  end
+  # get num of recipients
+  n = grants_array.length # => 5
+  # find temp cap by dividing budget by num of recipients
+  temp_cap = new_budget/n # => 38
+  # create var for keeping count of changed nums
+  ch = 0
+  # iterate thru arr w/o .each built-in
+  i = 0
+  while i < n
+    # if item is greater than temp_cap, replace with temp_cap and increment num of changed items by 1
     if arr[i] > temp_cap
-      # item = temp_cap
       arr[i] = temp_cap
-      # changed += 1
       ch += 1
     end
     i += 1
-  end
-  # create var for sum of grants_array
-  sum = 0
-  i = 0
-  while i < n
-    sum += arr[i]
-    i += 1
-  end
+  end # => [2, 30, 38, 38, 38] && ch = 3
+  sum = calc_sum(arr)
+
+  # if sum of arr is equal to new budget, then we are done, if not, we need to disperse the extra funds
   if sum != new_budget
     extras = new_budget - sum
+  else
+    return arr.last
   end
   additional_funds = extras/ch
   temp_cap += additional_funds
