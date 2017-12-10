@@ -19,6 +19,24 @@ def calc_sum(array)
   end
   total
 end
+
+def replace_with_cap(array, budget)
+  n = array.length
+  temp_cap = budget/n
+  # create var for keeping count of changed nums
+  ch = 0
+  # iterate thru arr (w/o .each built-in method)
+  i = 0
+  while i < n
+    # if item is greater than temp_cap, replace with temp_cap and increment num of changed items by 1
+    if array[i] > temp_cap
+      array[i] = temp_cap
+      ch += 1
+    end
+    i += 1
+  end
+  return array
+end
 # grants_array = [2, 30, 50, 120, 1000] && new_budget = 190
 def find_grants_cap(grants_array, new_budget)
   # sort arr
@@ -29,22 +47,7 @@ def find_grants_cap(grants_array, new_budget)
   if sum <= new_budget
     return orig_arr.last
   end
-  # get num of recipients
-  n = grants_array.length # => 5
-  # find temp cap by dividing budget by num of recipients
-  temp_cap = new_budget/n # => 38
-  # create var for keeping count of changed nums
-  ch = 0
-  # iterate thru arr (w/o .each built-in method)
-  i = 0
-  while i < n
-    # if item is greater than temp_cap, replace with temp_cap and increment num of changed items by 1
-    if arr[i] > temp_cap
-      arr[i] = temp_cap
-      ch += 1
-    end
-    i += 1
-  end # => [2, 30, 38, 38, 38] && ch = 3
+  new_arr = replace_with_cap(arr, new_budget) # => [2, 30, 38, 38, 38] && ch = 3
   sum = calc_sum(arr) # => 146
   p sum
 
@@ -59,6 +62,7 @@ def find_grants_cap(grants_array, new_budget)
   p additional_funds
   temp_cap += additional_funds # => 52
   p temp_cap
+  # iterate through arr and if item is greater than temp cap, replace with temp cap and
   orig_arr.each do |item| # => [2, 30, 50, 120, 1000]
    if item > temp_cap
       ch += 1
