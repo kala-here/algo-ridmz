@@ -1,20 +1,20 @@
 # Award Budget Cuts -- as resourced from www.pramp.com
 
-# The awards committee of your alma mater (i.e. your college/university) asked for your assistance with a budget allocation problem they’re facing. Originally, the committee planned to give N research grants this year. However, due to spending cutbacks, the budget was reduced to newBudget dollars and now they need to reallocate the grants. The committee made a decision that they’d like to impact as few grant recipients as possible by applying a maximum cap on all grants. Every grant initially planned to be higher than cap will now be exactly cap dollars. Grants less or equal to cap, obviously, won’t be impacted.
+# The awards committee of your alma mater (i.e. your college/university) asked for your assistance with a budget allocation problem they’re facing. Originally, the committee planned to give N research grants this year. However, due to spending cutbacks, the budget was reduced to new_budget dollars and now they need to reallocate the grants. The committee made a decision that they’d like to impact as few grant recipients as possible by applying a maximum cap on all grants. Every grant initially planned to be higher than cap will now be exactly cap dollars. Grants less or equal to cap, obviously, won’t be impacted.
 
-# Given an array grantsArray of the original grants and the reduced budget newBudget, write a function findGrantsCap that finds in the most efficient manner a cap such that the least number of recipients is impacted and that the new budget constraint is met (i.e. sum of the N reallocated grants equals to newBudget).
+# Given an array grants_array of the original grants and the reduced budget new_budget, write a function findGrantsCap that finds in the most efficient manner a cap such that the least number of recipients is impacted and that the new budget constraint is met (i.e. sum of the N reallocated grants equals to new_budget).
 
 # Analyze the time and space complexities of your solution.
 
-
-def find_grants_cap(grantsArray, newBudget)
+# grants_array = [2, 30, 50, 120, 1000] && new_budget = 190
+def find_grants_cap(grants_array, new_budget)
   # get num of recipients
-  n = grantsArray.length
+  n = grants_array.length
   # find temp cap by dividing budget by num of recipients
-  temp_cap = newBudget/n
+  temp_cap = new_budget/n
   # sort arr
-  orig_arr = grantsArray.sort
-  arr = grantsArray.sort
+  orig_arr = grants_array.sort
+  arr = grants_array.sort
   # create var for keeping count of changed nums
   ch = 0
   # iterate thru arr
@@ -29,19 +29,18 @@ def find_grants_cap(grantsArray, newBudget)
     end
     i += 1
   end
-  # create var for sum of grantsArray
+  # create var for sum of grants_array
   sum = 0
   i = 0
   while i < n
     sum += arr[i]
     i += 1
   end
-  if sum != newBudget
-    extras = newBudget - sum
+  if sum != new_budget
+    extras = new_budget - sum
   end
   additional_funds = extras/ch
   temp_cap += additional_funds
-  p temp_cap
   orig_arr.map! do |item|
    if item > temp_cap
       ch += 1
@@ -55,20 +54,20 @@ end
 __END__
 
 
-grantsArray = [2, 100, 50, 120, 1000], newBudget = 190, output = 47
+grants_array = [2, 30, 50, 120, 1000], new_budget = 190, output = 47
 
-n = grantsArray.length # get num of recipients
+n = grants_array.length # get num of recipients
 => 5
 
-temp_cap = newBudget/n #find temp cap by dividing budget by num of recipients
+temp_cap = new_budget/n #find temp cap by dividing budget by num of recipients
 => 190/5 = 38
 
-grantsArray = grantsArray.sort
-original_array = grantsArray
-=> [2 40 100 120 1000]
+grants_array = grants_array.sort
+original_array = grants_array
+=> [2 30 50 120 1000]
 
 changed = 0
-grantsArray.map do |item|
+grants_array.map do |item|
   if item > temp_cap
       item = temp_cap
       changed += 1
@@ -78,9 +77,9 @@ end
 => [2 38 38 38 38] # sum = 154
 
 sum = 0
-grantsArray.each { |x| sum += x }
-if sum != newBudget
-  extras = newBudget - sum
+grants_array.each { |x| sum += x }
+if sum != new_budget
+  extras = new_budget - sum
 end
 => extras = 46
 
