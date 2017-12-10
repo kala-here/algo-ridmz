@@ -41,7 +41,8 @@ def find_grants_cap(grantsArray, newBudget)
   end
   additional_funds = extras/ch
   temp_cap += additional_funds
-  orig_arr.map do |item|
+  p temp_cap
+  orig_arr.map! do |item|
    if item > temp_cap
       ch += 1
       item = temp_cap
@@ -49,6 +50,7 @@ def find_grants_cap(grantsArray, newBudget)
      item = item
    end
   end
+  return orig_arr.last
 end
 __END__
 
