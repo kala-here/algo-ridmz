@@ -8,7 +8,47 @@
 
 
 def find_grants_cap(grantsArray, newBudget)
-
+  # get num of recipients
+  n = grantsArray.length
+  # find temp cap by dividing budget by num of recipients
+  temp_cap = newBudget/n
+  # sort arr
+  orig_arr = grantsArray.sort
+  arr = grantsArray.sort
+  # create var for keeping count of changed nums
+  ch = 0
+  # iterate thru arr
+  i = 0
+  while i < n
+    # if item is greater than temp_cap
+    if arr[i] > temp_cap
+      # item = temp_cap
+      arr[i] = temp_cap
+      # changed += 1
+      ch += 1
+    end
+    i += 1
+  end
+  # create var for sum of grantsArray
+  sum = 0
+  i = 0
+  while i < n
+    sum += arr[i]
+    i += 1
+  end
+  if sum != newBudget
+    extras = newBudget - sum
+  end
+  additional_funds = extras/ch
+  temp_cap += additional_funds
+  orig_arr.map do |item|
+   if item > temp_cap
+      ch += 1
+      item = temp_cap
+   else
+     item = item
+   end
+  end
 end
 __END__
 
