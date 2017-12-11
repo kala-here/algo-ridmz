@@ -22,20 +22,33 @@ def find_grants_cap(grants_array, new_budget)
 
   # skip first item in array since we know it is too large to fit in new_budget
   # see if making value of arr[0] = arr[1] makes the sum <= new_budget
-  sum = 0
-  i = 0
-  while i < n-2
-    sum = calc_sum(arr, sum)
-    if sum <= new_budget
-      break
-    else
-      arr[i] = arr[i+1]
-      sum = calc_sum(arr,sum)
-      i += 1
-    end
-  end
-  p '**********'
+
+  arr[0] = arr[1]
   p arr
+  p calc_sum(arr, 0)
+  # sum is still larger than budget
+  arr[0] = arr[2] && arr[1] = arr[2]
+  p arr
+  p calc_sum(arr, 0)
+  arr[0]=arr[3] && arr[1]=arr[3] && arr[2] = arr[3]
+  p arr
+  p calc_sum(arr, 0)
+  arr[0]=arr[4] && arr[1]=arr[4] && arr[2] = arr[4] && arr[3]=arr[4]
+  p arr
+  p calc_sum(arr, 0)
+  # i = 0
+  # while i < n-2
+  #   sum = 0
+  #   sum = calc_sum(arr, sum)
+  #   p sum
+  #   if sum <= new_budget
+  #     return sum
+  #   else
+  #     arr[i] = arr[i+1]
+  #     i += 1
+  #   end
+  # end
+  # arr
   # sum = 0
   # for x in arr
   #   next_lowest_value = arr[arr.index(x)+1]
