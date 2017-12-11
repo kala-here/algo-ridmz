@@ -27,11 +27,11 @@ describe '#find_grants_cap' do
   end
 
   it 'returns the max budget cap with 4 alternations' do
-    expect(find_grants_cap(arr, budget)).to eq 47
+    expect(find_grants_cap(alt4, budget)).to eq 47
   end
 
   it 'returns the max budget cap with 5 alternations' do
-    expect(find_grants_cap(arr, budget)).to eq 47
+    expect(find_grants_cap(alt5, budget)).to eq 47
   end
 
 end
