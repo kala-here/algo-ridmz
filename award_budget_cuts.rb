@@ -1,3 +1,8 @@
+def calc_sum(arry, current_sum)
+  arry.each { |x| current_sum += x }
+  return current_sum
+end
+
 def find_grants_cap(grants_array, new_budget)
 
   # sort arr in descending order
@@ -8,7 +13,7 @@ def find_grants_cap(grants_array, new_budget)
 
   # get the sum of the array to then see if we need to move forward
   sum = 0
-  arr.each { |x| sum += x }
+  sum = calc_sum(arr, sum)
 
   # if sum is less than or equal to new budget, we are done/can return first item in array
   if sum <= new_budget
@@ -18,18 +23,12 @@ def find_grants_cap(grants_array, new_budget)
   # skip first item in array since we know it is too large to fit in new_budget
   # see if making value of arr[0] = arr[1] makes the sum <= new_budget
   for x in arr
-    p x = arr[arr.index(x)+1]
+    sum = 0
+    p x
+    until sum <= new_budget
+      x = arr[arr.index(x)+1]
+      calc_sum(arr, sum)
+    end
+    sum
   end
-
-# p arr
-#   for x in arr
-#     sum = 0
-#     until sum <= new_budget
-#       p x
-#       x = x.next
-#       p x
-#       arr.each { |x| sum += x } # DRY this up
-#     end
-#     p sum
-#   end
 end
