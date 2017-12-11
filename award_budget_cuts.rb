@@ -3,6 +3,23 @@ def calc_sum(arry, current_sum)
   return current_sum
 end
 
+def attemp_cap_of(arry, index)
+  cap = arry[index]
+  p cap
+  until index == 0
+    arry[index-1] = cap
+    p arry[index-1]
+    index -= 1
+  end
+  calc_sum(arry, 0)
+end
+
+def check_sum(s, budget, arry)
+  if s <= budget
+    return arry[0]
+  end
+end
+
 def find_grants_cap(grants_array, new_budget)
 
   # sort arr in descending order
@@ -14,38 +31,30 @@ def find_grants_cap(grants_array, new_budget)
   # get the sum of the array to then see if we need to move forward
   sum = 0
   sum = calc_sum(arr, sum)
-
   # if sum is less than or equal to new budget, we are done/can return first item in array
-  if sum <= new_budget
-    return arr[0]
-  end
-
+  check_sum(sum, new_budget, arr)
   # skip first item in array since we know it is too large to fit in new_budget
-  # see if making value of arr[0] = arr[1] makes the sum <= new_budget
+  # see if making value of arr[0] = arr[1] makes the sum <= new_budget and so on
+  attemp_cap_of(arr, 4)
+
+
+
+
   # the pattern below is we are comparing sum to budget, if larger, assign second item value to first
 
-  def attemp_cap_of(arry, index)
-    cap = arry[index]
-    until index = 0
-      arry[index-1] = cap
-      index -= 1
-    end
-    calc_sum(arry, 0)
-  end
-
-  arr[0] = arr[1]
-  p arr
-  p calc_sum(arr, 0)
-  # sum is still larger than budget
-  arr[0] = arr[2] && arr[1] = arr[2]
-  p arr
-  p calc_sum(arr, 0)
-  arr[0]=arr[3] && arr[1]=arr[3] && arr[2] = arr[3]
-  p arr
-  p calc_sum(arr, 0)
-  arr[0]=arr[4] && arr[1]=arr[4] && arr[2] = arr[4] && arr[3]=arr[4]
-  p arr
-  p calc_sum(arr, 0)
+  # arr[0] = arr[1]
+  # p arr
+  # p calc_sum(arr, 0)
+  # # sum is still larger than budget
+  # arr[0] = arr[2] && arr[1] = arr[2]
+  # p arr
+  # p calc_sum(arr, 0)
+  # arr[0]=arr[3] && arr[1]=arr[3] && arr[2] = arr[3]
+  # p arr
+  # p calc_sum(arr, 0)
+  # arr[0]=arr[4] && arr[1]=arr[4] && arr[2] = arr[4] && arr[3]=arr[4]
+  # p arr
+  # p calc_sum(arr, 0)
   # i = 0
   # while i < n-2
   #   sum = 0
