@@ -17,15 +17,19 @@ def find_grants_cap(grants_array, new_budget)
 
   # skip first item in array since we know it is too large to fit in new_budget
   # see if making value of arr[0] = arr[1] makes the sum <= new_budget
-p arr
   for x in arr
-    sum = 0
-    until sum <= new_budget
-      p x
-      x = x.next
-      p x
-      arr.each { |x| sum += x } # DRY this up
-    end
-    p sum
+    p x = arr[arr.index(x)+1]
   end
+
+# p arr
+#   for x in arr
+#     sum = 0
+#     until sum <= new_budget
+#       p x
+#       x = x.next
+#       p x
+#       arr.each { |x| sum += x } # DRY this up
+#     end
+#     p sum
+#   end
 end
