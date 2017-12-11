@@ -3,20 +3,21 @@ def calc_sum(arry, current_sum)
   return current_sum
 end
 
-def attemp_cap_of(arry, index)
-  cap = arry[index]
+def attemp_cap_of(arry, ind)
+  cap = arry[ind]
   p cap
-  until index == 0
-    arry[index-1] = cap
-    p arry[index-1]
-    index -= 1
+  until ind == 0
+    arry[ind-1] = cap
+    ind -= 1
   end
   calc_sum(arry, 0)
 end
 
 def check_sum(s, budget, arry)
   if s <= budget
-    return arry[0]
+    true
+  else
+    false
   end
 end
 
@@ -35,7 +36,15 @@ def find_grants_cap(grants_array, new_budget)
   check_sum(sum, new_budget, arr)
   # skip first item in array since we know it is too large to fit in new_budget
   # see if making value of arr[0] = arr[1] makes the sum <= new_budget and so on
-  attemp_cap_of(arr, 4)
+  i = 0
+  n-1.times do
+    sum = attemp_cap_of(arr, i)
+    if check_sum(sum, new_budget, arr)
+      return arr[0]
+    else
+      i += 1
+    end
+  end
 
 
 
