@@ -22,6 +22,16 @@ def find_grants_cap(grants_array, new_budget)
 
   # skip first item in array since we know it is too large to fit in new_budget
   # see if making value of arr[0] = arr[1] makes the sum <= new_budget
+  # the pattern below is we are comparing sum to budget, if larger, assign second item value to first
+
+  def attemp_cap_of(arry, index)
+    cap = arry[index]
+    until index = 0
+      arry[index-1] = cap
+      index -= 1
+    end
+    calc_sum(arry, 0)
+  end
 
   arr[0] = arr[1]
   p arr
