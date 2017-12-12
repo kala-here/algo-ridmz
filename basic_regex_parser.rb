@@ -54,7 +54,7 @@ def recursive_compare_stacks(tex, patt)
     return true
   end
 # if we have reached the end of the text and pattern is not completed, they do not match
-  if text.peek == nil && patt.peek != nil
+  if tex.peek == nil && patt.peek != nil
     return false
   end
 # If they are equal or a dot, pop both off and continue on to next
@@ -75,7 +75,7 @@ def recursive_compare_stacks(tex, patt)
       until tex.peek != patt.peek
         tex.pop
       end
-      if text.peek != patt.peek
+      if tex.peek != patt.peek
         patt.pop
       end
     end
@@ -98,7 +98,6 @@ def is_match(text, pattern)
     return false
   end
   text_stack = Stack.new(text)
-  p text_stack
   pattern_stack = Stack.new(pattern)
   return recursive_compare_stacks(text_stack, pattern_stack)
 end
