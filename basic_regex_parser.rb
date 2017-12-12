@@ -19,6 +19,23 @@
   # if (pattern does not include * or .) & (does not match text) RETURN false
 
 # else push into stacks: text_stack & patter_stack
+
+def is_match(text, pattern)
+  if text == pattern
+    return true
+  end
+  dot_index = pattern.index('.')
+  star_index = pattern.index('*')
+  if dot_index == nil && star_index == nil && text != pattern
+    return false
+  end
+
+  text_stack = Stack.new(text)
+  pattern = Stack.new(pattern)
+
+end
+
+
 class Stack
 
   def initialize(str)
