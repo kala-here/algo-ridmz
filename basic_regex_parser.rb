@@ -40,44 +40,48 @@ class Stack
     @list.length
   end
 
+  def peek
+    @list[@list.size - 1]
+  end
+
 end
 
 
 
 def recursive_compare_stacks(tex, patt)
 # if we have reached the end of both at the same time, they are a match
-  if tex.peak == nil && patt.peak == nil
+  if tex.peek == nil && patt.peek == nil
     return true
   end
 # if we have reached the end of the text and pattern is not completed, they do not match
-  if text.peak == nil && patt.peak != nil
+  if text.peek == nil && patt.peek != nil
     return false
   end
 # If they are equal or a dot, pop both off and continue on to next
-  if tex.peak == patt.peak || patt.peak == '.'
+  if tex.peek == patt.peek || patt.peek == '.'
     tex.pop
     patt.pop
   end
 
-  if patt.peak == '*'
+  if patt.peek == '*'
     patt.pop
-    if tex.peak != patt.peak # if *'s left neighbor does not match text, pop off pattern and compare again
+    if tex.peek != patt.peek # if *'s left neighbor does not match text, pop off pattern and compare again
       patt.pop
-      if tex.peak != patt.peak # now they must match in order to be a whole match
+      if tex.peek != patt.peek # now they must match in order to be a whole match
         return false
       end
     end
-    if tex.peak == patt.peak # here we check to see if *'s left neighbor does match text, then pop off text items until they don't match, then pop off pattern & compare next two items
-      until tex.peak != patt.peak
+    if tex.peek == patt.peek # here we check to see if *'s left neighbor does match text, then pop off text items until they don't match, then pop off pattern & compare next two items
+      until tex.peek != patt.peek
         tex.pop
       end
-      if text.peak != patt.peak
+      if text.peek != patt.peek
         patt.pop
       end
     end
   end
 
-  if tex.peak != patt.peak
+  if tex.peek != patt.peek
     return false
   end
 
@@ -94,6 +98,7 @@ def is_match(text, pattern)
     return false
   end
   text_stack = Stack.new(text)
+  p text_stack
   pattern_stack = Stack.new(pattern)
   return recursive_compare_stacks(text_stack, pattern_stack)
 end
