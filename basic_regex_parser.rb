@@ -53,5 +53,7 @@ def recursive_compare(tex, patt)
     end
   end
 
-
+  if tex.peak != patt.peak
+    return false
+  end
 end
