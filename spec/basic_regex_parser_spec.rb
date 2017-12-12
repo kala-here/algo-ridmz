@@ -2,41 +2,69 @@ require 'rspec'
 require_relative '../basic_regex_parser'
 
 describe '#is_match' do
-  let(:text_pattern) { ["", ""] }
-  let(:text_pattern1) { ["aa", "a"] }
-  let(:text_pattern2) { ["bb", "bb"] }
-  let(:text_pattern3) { ["", "a*"] }
-  let(:text_pattern4) { ["abbdbb", "ab*d"] }
-  let(:text_pattern5) { ["aba", "a.a"] }
-  let(:text_pattern6) { ["acd", "ab*c."] }
-  let(:text_pattern7) { ["abaa", "a.*a*"] }
 
-  it 'returns true if text and pattern match' do
-    expect(is_match(text_pattern)).to eq true
+  describe 'when both text and pattern are empty'
+    let(:text) { "" }
+    let(:pattern) { "" }
+    it 'returns true because they match' do
+      expect(is_match(text, pattern)).to eq true
+    end
   end
 
-  it 'returns false if text and pattern do not match' do
-    expect(is_match(text_pattern1)).to eq false
+  describe 'when both text and pattern do not match without symbols'
+    let(:text) { "aa" }
+    let(:pattern) { "a" }
+    it 'returns false because they do not match' do
+      expect(is_match(text, pattern)).to eq false
+    end
   end
 
-  it 'returns true if text and pattern match' do
-    expect(is_match(text_pattern2)).to eq true
+  describe 'when both text and pattern do match without symbols'
+    let(:text) { "bb" }
+    let(:pattern) { "bb" }
+    it 'returns true because they do match' do
+      expect(is_match(text, pattern)).to eq true
+    end
   end
 
-  it 'returns true if text and pattern match' do
-    expect(is_match(text_pattern3)).to eq true
+  describe "when both text and pattern do match with '*' included"
+    let(:text) { "" }
+    let(:pattern) { "a*" }
+    it 'returns true because they do match' do
+      expect(is_match(text, pattern)).to eq true
+    end
   end
-  it 'returns false if text and pattern do not match' do
-    expect(is_match(text_pattern4)).to eq false
+
+  describe "when both text and pattern don't match with '*' included"
+    let(:text) { "abbdbb" }
+    let(:pattern) { "ab*d" }
+    it 'returns false because text exceeds pattern' do
+      expect(is_match(text, pattern)).to eq false
+    end
   end
-  it 'returns true if text and pattern match' do
-    expect(is_match(text_pattern5)).to eq true
+
+  describe "when both text and pattern do match with '.' included"
+    let(:text) { "aba" }
+    let(:pattern) { "a.a" }
+    it 'returns true because they do match with a dot' do
+      expect(is_match(text, pattern)).to eq true
+    end
   end
-  it 'returns true if text and pattern match' do
-    expect(is_match(text_pattern6)).to eq true
+
+  describe "when both text and pattern do match with '.' & '*' included"
+    let(:text) { "acd" }
+    let(:pattern) { "ab*c." }
+    it 'returns true because they do match with a dot' do
+      expect(is_match(text, pattern)).to eq true
+    end
   end
-  it 'returns true if text and pattern match' do
-    expect(is_match(text_pattern7)).to eq true
+
+  describe "when both text and pattern do match with '.' included"
+    let(:text) { "abaa" }
+    let(:pattern) { "a.*a*" }
+    it 'returns true because they do match with a dot' do
+      expect(is_match(text, pattern)).to eq true
+    end
   end
 
 end
