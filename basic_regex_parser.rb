@@ -80,9 +80,9 @@ def recursive_compare_stacks(tex, patt)
       end
     end
   end
-
+  p "text size = #{text.size}"
+  p "pattern size = #{patt.size}"
   if patt.peek == '*' && tex.size == 0
-    p patt.size
     if patt.size == 2
       return true
     else
