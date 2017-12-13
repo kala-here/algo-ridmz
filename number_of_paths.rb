@@ -45,3 +45,22 @@
     # i = 1 while j = 0, j = 1
     # i = 2 while j = 0, j = 1, j = 2
     # i = 3 while j = 0, j = 1, j = 2, j = 3
+# then off each of those we create new paths...
+
+def num_of_paths_to_dest(n)
+end
+
+def recursive_path(n, i, j, count)
+  if i == n && j == n
+    count += 1
+  end
+  if i < n - 1
+    i += 1
+    return
+  end
+  if j < n - 1 && j < i
+    j += 1
+    return
+  end
+  return recursive_path(n, i, j, count)
+end
