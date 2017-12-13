@@ -1,4 +1,4 @@
-# Number of Paths
+# Number of Paths -- as sourced from www.Pramp.com
 
 # You’re testing a new driverless car that is located at the Southwest (bottom-left) corner of an n×n grid. The car is supposed to get to the opposite, Northeast (top-right), corner of the grid. Given n, the size of the grid’s axes, write a function numOfPathsToDest that returns the number of the possible paths the driverless car can take.
 
@@ -7,13 +7,10 @@
 # The car must abide by the following two rules: it cannot cross the diagonal border. In other words, in every step the position (i,j) needs to maintain i >= j. See the illustration below for n = 4. In every step, it may go one square North (up), or one square East (right), but not both. E.g. if the car is at (2,1), it may go to (2,2) or (3,1).
 
 # Explain the correctness of your function, and analyze its time and space complexities.
-
 # -------------------------------------------------------
-
 # Example grid:
 # n = 4
 # output = 5
-
 #   _____________________________________________
 #   |         |          |          |           |
 #   |  -----  |   -----  |  -----   |   (3,3)   |
@@ -45,3 +42,4 @@
     # i = 1 while j = 0, j = 1
     # i = 2 while j = 0, j = 1, j = 2
     # i = 3 while j = 0, j = 1, j = 2, j = 3
+# Then from each of those
