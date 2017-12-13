@@ -77,7 +77,7 @@ def recursive_compare_stacks(tex, patt)
       else
       patt.pop
       if tex.peek != patt.peek # now they must match in order to be a whole match
-          return "hit here"
+          return false
         end
       end
     end
@@ -97,8 +97,8 @@ def recursive_compare_stacks(tex, patt)
     end
   end
 
-  if tex.peek != patt.peek && patt.peek != '*' && patt.peak != '.'
-    return "false"
+  if tex.peek != patt.peek && patt.peek != '*' && patt.peek != '.'
+    return false
   end
 
   return recursive_compare_stacks(tex, patt)
