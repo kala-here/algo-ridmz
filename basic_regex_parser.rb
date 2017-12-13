@@ -58,7 +58,12 @@ def recursive_compare_stacks(tex, patt)
     return false
   end
   # If they are equal or a dot, pop both off and continue on to next
-  if tex.peek == patt.peek || patt.peek == '.'
+  if tex.peek == patt.peek
+    tex.pop
+    patt.pop
+  end
+
+  if patt.peek == '.'
     tex.pop
     patt.pop
   end
