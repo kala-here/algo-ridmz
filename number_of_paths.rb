@@ -59,6 +59,12 @@ def recursive_path(n, i, j, count)
   if i == n && j == n
     return count += 1
   end
+  if i >= n
+    return
+  end
+  if j >= n
+    return
+  end
   if i < n - 1
     i += 1
     return
