@@ -52,6 +52,10 @@ def num_of_paths_to_dest(n)
 end
 
 def recursive_path(n, i, j, count)
+  p "n = #{n}"
+  p "i = #{i}"
+  p "j = #{j}"
+  p "count = #{count}"
   if i == n && j == n
     return count += 1
   end
