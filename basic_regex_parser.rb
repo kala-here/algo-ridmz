@@ -73,15 +73,26 @@ def recursive_compare_stacks(tex, patt)
     if tex.peek != patt.peek # if *'s left neighbor does not match text, pop off pattern and compare again
       patt.pop
       if tex.peek != patt.peek # now they must match in order to be a whole match
-        return false
+        if patt.peek == '.'
+          patt.pop
+          tex.pop
+        else
+          return "hit here"
+        end
       end
     end
     if tex.peek == patt.peek # here we check to see if *'s left neighbor does match text, then pop off text items until they don't match, then pop off pattern & compare next two items
       until tex.peek != patt.peek
         tex.pop
       end
+      patt.pop
       if tex.peek != patt.peek
-        patt.pop
+        if patt.peek == '.'
+          patt.pop
+          tex.pop
+        else
+          return "false"
+        end
       end
     end
   end
