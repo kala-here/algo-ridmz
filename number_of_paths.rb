@@ -48,7 +48,7 @@
 # then off each of those we create new paths...
 
 def num_of_paths_to_dest(n)
-  
+  return recursive_path(n, 0, 0, 0)
 end
 
 def recursive_path(n, i, j, count)
