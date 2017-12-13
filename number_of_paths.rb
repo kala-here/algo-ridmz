@@ -63,9 +63,8 @@ def recursive_path(n, i, j, count)
     while j < n-1
       if j < i
         j += 1
-      else
-        i += 1
       end
+      i += 1
     end
   end
   return recursive_path(n, i, j, count)
