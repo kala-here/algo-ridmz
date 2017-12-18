@@ -23,8 +23,8 @@ describe '#recursive_factorial' do
     expect(recursive_factorial(1)).to eq 1
   end
 
-  it 'returns 0 if input is 0' do
-    expect(recursive_factorial(0)).to eq 0
+  it 'returns nil if input is 0' do
+    expect(recursive_factorial(0)).to eq nil
   end
 
 end
