@@ -5,14 +5,12 @@
 def recursive_flatten_the_array(nested, flattened)
   i = 0
   while i < nested.length
-    if nested[i+1] == nil && nested[i].class != Array
-      return flattened
-    end
     if nested[i].class != Array
       flattened << nested[i]
     else
-      recursive_flatten_the_array(nested, flattened)
+      recursive_flatten_the_array(flattened, [])
     end
     i += 1
   end
+  flattened
 end
