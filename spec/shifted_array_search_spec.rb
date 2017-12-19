@@ -18,6 +18,10 @@ describe '#shifted_array_search' do
     expect(shifted_array_search(x, 1)).to eq 0
   end
 
+  it 'returns the index of 4' do
+    expect(shifted_array_search([4, 6, 1, 2, 3], 4)).to eq 0
+  end
+
   it 'returns the index of 3' do
     x = [7, 1, 2, 3, 4, 5, 6]
     expect(shifted_array_search(x, 3)).to eq 3
