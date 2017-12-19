@@ -62,6 +62,11 @@ describe '#find_pivot' do
     expect(find_pivot(x)).to eq 4
   end
 
+  it 'returns the index of 2' do
+    x = [1, 2]
+    expect(find_pivot(x)).to eq 0
+  end
+
   it 'returns index 0 of the would-be unshifted array' do
     x = [4, 5, 6, 1, 2]
     expect(find_pivot(x)).to eq 3
