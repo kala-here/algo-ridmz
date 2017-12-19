@@ -2,7 +2,7 @@
 
 def shifted_array_search(arr, num)
   # save time by checking if length is 1
-  if arr.length < 3
+  if arr.length < 3 # false
     i = 0
     while i < arr.length
       if arr[i] == num
@@ -13,21 +13,24 @@ def shifted_array_search(arr, num)
     end
     return -1
   end
-  pivot_point = find_pivot(arr)
+  pivot_point = find_pivot(arr) # 0
   # save time by checking if num is at pivot point
-  if num == arr[pivot_point]
+  if num == arr[pivot_point] # false
     return pivot_point
   end
   # check to see if num is at beginning of array
-  if num == arr[0]
+  if num == arr[0] # false
     return 0
   end
   # if num is less than the value at beginning of array, binary search AFTER pivot point
-  if num < arr[0]
+  if num < arr[0] # false
     return binary_search(arr, pivot_point, arr.length - 1, num)
   end
   # if num is greater than the value at beginning of array, binary search BEFORE pivot point
-  if num > arr[0]
+  if num > arr[0] # true
+    if pivot_point == 0
+      return binary_search(arr, 0, arr.length - 1, num)
+    end
     return binary_search(arr, 0, pivot_point - 1, num)
   end
 end
