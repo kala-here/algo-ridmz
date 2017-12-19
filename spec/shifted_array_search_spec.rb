@@ -73,3 +73,39 @@ describe '#find_pivot' do
   end
 
 end
+
+describe '#binary_search' do
+
+  it 'returns index of num' do
+    x = [3, 4, 5, 6, 1, 2]
+    s = 0
+    f = 3
+    n = 6
+    expect(binary_search(x, s, f, n)).to eq 3
+  end
+
+  it 'returns index of num' do
+    x = [12, 13, 14, 10, 11]
+    s = 0
+    f = 2
+    n = 13
+    expect(binary_search(x, s, f, n)).to eq 1
+  end
+
+  it 'returns index of num' do
+    x = [7, 1, 2, 3, 4, 5, 6]
+    s = 1
+    f = 6
+    n = 6
+    expect(binary_search(x, s, f, n)).to eq 6
+  end
+
+  it 'returns index of num' do
+    x = [10, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    s = 1
+    f = 9
+    n = 2
+    expect(binary_search(x, s, f, n)).to eq 2
+  end
+
+end
