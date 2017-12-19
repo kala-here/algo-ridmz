@@ -24,28 +24,6 @@ def shifted_array_search(arr, num)
   end
 end
 
-
-def binary_search(arr, start, finish, num)
-  # start and finish create the sub array of either before or after the pivot point
-  while start <= finish
-    # find mid of that sub array
-    mid = start + (finish - start)/2
-    # if mid value is less than num, create new sub array starting after mid
-    if arr[mid] < num
-      start = mid + 1
-    # if mid value is equal to num, return mid
-    elsif arr[mid] == num
-      return mid
-    # if mid value is greater than num, create new sub array starting before mid
-    else
-      finish = mid - 1 #
-    end
-  end
-  # otherwise, num is not in array and we return -1 for the record
-  return -1
-end
-
-
 # input = array, output = index of pivot point
 def find_pivot(arr)
   n = arr.length - 1
@@ -70,6 +48,27 @@ def find_pivot(arr)
       finish = mid - 1
     end
   end
+end
+
+# output will be index of num or -1 if num is not present
+def binary_search(arr, start, finish, num)
+  # start and finish create the sub array of either before or after the pivot point
+  while start <= finish
+    # find mid of that sub array
+    mid = start + (finish - start)/2
+    # if mid value is less than num, create new sub array starting after mid
+    if arr[mid] < num
+      start = mid + 1
+    # if mid value is equal to num, return mid
+    elsif arr[mid] == num
+      return mid
+    # if mid value is greater than num, create new sub array starting before mid
+    else
+      finish = mid - 1 #
+    end
+  end
+  # otherwise, num is not in array and we return -1 for the record
+  return -1
 end
 
 
