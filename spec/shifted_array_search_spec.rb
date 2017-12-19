@@ -4,6 +4,11 @@ require_relative '../shifted_array_search'
 
 describe '#shifted_array_search' do
 
+  it 'returns the index of 3' do
+    x = [2]
+    expect(shifted_array_search(x, 3)).to eq -1
+  end
+
   it 'returns the index of 5' do
     x = [3, 4, 5, 6, 1, 2]
     expect(shifted_array_search(x, 5)).to eq 2
