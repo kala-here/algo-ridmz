@@ -1,4 +1,4 @@
-# given a shifted array of an unknown offset (that is otherwise sorted from smallest to largest), find an efficient way to return the index of num
+# given a shifted array of an unknown offset (that is otherwise sorted from smallest to largest), find an efficient way to return the index of num. If num is not in shifted array, return -1.
 
 def shifted_array_search(arr, num)
   if arr.length == 1
@@ -16,31 +16,35 @@ def shifted_array_search(arr, num)
   end
 end
 
-end
 
 def binary_search(arr, start, finish, num)
-  n = arr.length - 1
-  start = 0
-  mid = pivot
-  finish = arr[n]
-  if num == pivot
-    return pivot
+  # arr = [4, 5, 6, 1, 2]
+  # start = 3
+  # finish = 4
+  # num = 2
+  while start <= finish
+    mid = start + (finish - start)/2 # 0
+    if arr[mid] < num # false
+      start = mid + 1
+    elsif arr[mid] == num #false
+      return mid
+    else
+      finish = mid - 1 #
+    end
   end
-  if num > pivot #search left
-    upper_half = arr[start]
-    binary_search(upper_half, num)
-  end
-  if num < arr[mid_i] #search right
-    lower_half = arr[0..mid_i]
-    shifted_array_search(lower_half, num)
-  end
+  return -1
 end
+# [4, 5, 6, 1, 2], 2
+
 
 # input = array, output = index of pivot point
 def find_pivot(arr)
   n = arr.length - 1
   start = 0
   finish = n
+  if arr[0] < arr[n]
+    return 0
+  end
   while start <= finish
     mid = start + (finish-start)/2
     if mid == 0 || arr[mid] < arr[mid-1]
