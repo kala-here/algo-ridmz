@@ -36,8 +36,35 @@ describe '#shifted_array_search' do
 end
 
 describe '#find_pivot' do
+
+  it 'returns index 0 of the would-be unshifted array' do
+    x = [3, 4, 5, 6, 1, 2]
+    expect(find_pivot(x)).to eq 4
+  end
+
+  it 'returns index 0 of the would-be unshifted array' do
+    x = [4, 5, 6, 1, 2]
+    expect(find_pivot(x)).to eq 3
+  end
+
+  it 'returns index 0 of the would-be unshifted array' do
+    x = [1, 2, 3, 4]
+    expect(find_pivot(x)).to eq 0
+  end
+
+  it 'returns index 0 of the would-be unshifted array' do
+    x = [4, 6, 1, 2, 3]
+    expect(find_pivot(x)).to eq 2
+  end
+
+  it 'returns index 0 of the would-be unshifted array' do
+    x = [7, 1, 2, 3, 4, 5, 6]
+    expect(find_pivot(x)).to eq 1
+  end
+
   it 'returns index 0 of the would-be unshifted array' do
     x = [12, 13, 14, 10, 11]
     expect(find_pivot(x)).to eq 3
   end
+
 end

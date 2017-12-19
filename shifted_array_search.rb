@@ -4,18 +4,17 @@ def shifted_array_search(arr, num)
 
 end
 
-def find_pivot(arr) # [12, 13, 14, 10, 11]
-  n = arr.length - 1 # 4
+def find_pivot(arr)
+  n = arr.length - 1
   start = 0
   finish = n
-  while start <= finish #true
-    mid = start + (finish-start)/2 # 2
-    if mid == 0 || arr[mid] < arr[mid-1] # false
+  while start <= finish
+    mid = start + (finish-start)/2
+    if mid == 0 || arr[mid] < arr[mid-1]
       return mid
     end
-    if arr[mid] > arr[0] # true
-      p "hittin"
-      start = mid + 1 # 3
+    if arr[mid] > arr[0]
+      start = mid + 1
     else
       finish = mid - 1
     end
