@@ -4,7 +4,7 @@ def shifted_array_search(arr, num)
   # save time by checking if length is 1
   if arr.length == 1
     if num == arr[0]
-      return arr[0]
+      return 0
     else
       return -1
     end
