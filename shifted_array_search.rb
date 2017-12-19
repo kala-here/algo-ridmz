@@ -3,7 +3,7 @@
 def shifted_array_search(arr, num)
   # this will be a binary search
   n = arr.length
-  mid_i = n/2
+  mid_i = (n-1)/2
   p arr[mid_i]
   if num == arr[mid_i]
     return mid_i
