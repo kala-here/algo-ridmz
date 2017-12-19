@@ -1,22 +1,42 @@
 # given a shifted array of an unknown offset (that is otherwise sorted from smallest to largest), find an efficient way to return the index of num
 
 def shifted_array_search(arr, num)
-  # this will be a binary search to find the pivot point
+
+end
+
+def find_pivot(arr) # [12, 13, 14, 10, 11]
   n = arr.length - 1 # 4
-  mid = n/2 # 2
-  if num == arr[mid] # false
-    p mid
-    return mid
+  start = 0
+  finish = n
+  while start <= finish #true
+    mid = start + (finish-start)/2 # 2
+    if mid == 0 || arr[mid] < arr[mid-1] # false
+      return mid
+    end
+    if arr[mid] > arr[0] # true
+      p "hittin"
+      start = mid + 1 # 3
+    else
+      finish = mid - 1
+    end
   end
-  if num == arr[mid-1] # false
-    return mid-1
-  end
-  if arr[mid] > arr[mid-1] # true
-    new_arr = arr[mid..n] # [14,10,11]
-    shifted_array_search(new_arr, num)
-  end
-  if arr[mid] < arr[mid-1] #
-    new_arr = arr[0..mid] #
-    shifted_array_search(new_arr, num)
-  end
+end
+
+
+__END__
+[4, 5, 6, 1, 2], 2
+[12, 13, 14, 10, 11], 10
+
+n = arr.length - 1 # 4
+mid_i = n/2 # 2
+if num == arr[mid_i] # false
+  return mid_i
+end
+if num > arr[mid_i]
+  upper_half = arr[mid_i..n]
+  shifted_array_search(upper_half, num)
+end
+if num < arr[mid_i]
+  lower_half = arr[0..mid_i]
+  shifted_array_search(lower_half, num)
 end
