@@ -18,15 +18,15 @@ end
 
 
 def binary_search(arr, start, finish, num)
-  # arr = [4, 5, 6, 1, 2]
-  # start = 3
+  # x = [10, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  # start = 1
   # finish = 4
   # num = 2
   while start <= finish
-    mid = start + (finish - start)/2 # 0
-    if arr[mid] < num # false
+    mid = start + (finish - start)/2
+    if arr[mid] < num
       start = mid + 1
-    elsif arr[mid] == num #false
+    elsif arr[mid] == num
       return mid
     else
       finish = mid - 1 #
@@ -34,7 +34,6 @@ def binary_search(arr, start, finish, num)
   end
   return -1
 end
-# [4, 5, 6, 1, 2], 2
 
 
 # input = array, output = index of pivot point
@@ -61,5 +60,5 @@ end
 
 __END__
 [4, 5, 6, 1, 2], 2
-[12, 13, 14, 10, 11], 10
+[12, 13, 14, 10, 11], 13
 [1, 2, 3, 4], 1
