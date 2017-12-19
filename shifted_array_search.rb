@@ -14,14 +14,17 @@ def shifted_array_search(arr, num)
   if num > arr[0]
     return binary_search(arr, 0, pivot_point - 1, num)
   end
+  if num == arr[0]
+    return 0
+  end
 end
 
 
 def binary_search(arr, start, finish, num)
-  # x = [10, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  # start = 1
-  # finish = 4
-  # num = 2
+  # [4, 6, 1, 2, 3]
+  # start =
+  # finish =
+  # num = 4
   while start <= finish
     mid = start + (finish - start)/2
     if arr[mid] < num
