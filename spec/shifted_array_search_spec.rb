@@ -23,7 +23,7 @@ describe '#shifted_array_search' do
     expect(shifted_array_search(x, 3)).to eq 3
   end
 
-  it 'returns the index of 5' do
+  it 'returns the index of 10' do
     x = [12, 13, 14, 10, 11]
     expect(shifted_array_search(x, 10)).to eq 3
   end

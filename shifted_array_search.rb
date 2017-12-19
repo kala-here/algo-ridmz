@@ -2,22 +2,22 @@
 
 def shifted_array_search(arr, num)
   # this will be a binary search
-  n = arr.length
-  if n%2 == 0
-    mid_i = (n-1)/2
-  else
-    mid_i = n/2
-  end
-  p arr[mid_i]
-  if num == arr[mid_i]
-    return mid_i
-  end
-  if num > arr[mid_i]
-    upper_half = arr[mid_i...n-1]
-    shifted_array_search(upper_half, num)
-  end
-  if num < arr[mid_i]
-    lower_half = arr[0...mid_i]
-    shifted_array_search(lower_half, num)
-  end
+
+end
+
+__END__
+[4, 5, 6, 1, 2], 2
+
+n = arr.length - 1 # 4
+mid_i = n/2 # 2
+if num == arr[mid_i] # false
+  return mid_i
+end
+if num > arr[mid_i]
+  upper_half = arr[mid_i..n]
+  shifted_array_search(upper_half, num)
+end
+if num < arr[mid_i]
+  lower_half = arr[0..mid_i]
+  shifted_array_search(lower_half, num)
 end
