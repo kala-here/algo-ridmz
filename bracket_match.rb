@@ -7,3 +7,37 @@
 # Explain the correctness of your code, and analyze its time and space complexities.
 
 # -----------------------------------------------------
+
+def bracketMatch(inputString)
+        pair = { "("=>")" }
+        stack = []
+        text = inputString.split("")
+
+        for i in 0..text.length
+                lastIndx = stack.length==0?0:stack.length-1
+                if stack
+                        lastItem = stack[lastIndx]
+                end
+                if stack.length == 0
+                        stack.push(text[i])
+                else
+                        if lastItem=="(" and pair[lastItem] == text[i]
+                                stack.pop()
+                        else
+                                stack.push(text[i])
+                        end
+                end
+        end
+        return stack.length-1
+end
+
+puts bracketMatch(")()") # expected: 1 
+puts bracketMatch("()))())") # expected: 3
+puts bracketMatch("((((())()())(()()()()(")# expected: 4
+
+__END__
+
+The time complexity of the algorithm would be O(n) as the number of loops in the for loop depends on the size of the input given.
+The space complexity on the other hand is as follows:
+i) Best Case: O(1) considering only one bracket would be given
+ii) Average Case: O(n) as most of the string contents are stored again in the form of a stack
