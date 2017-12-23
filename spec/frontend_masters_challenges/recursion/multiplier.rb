@@ -1,7 +1,7 @@
 require 'rspec'
 require_relative '../../../frontend_masters_challenges/recursion/multiplier'
 
-define '#recursive_multiplier' do
+describe '#recursive_multiplier' do
 
   it 'returns an array of array items multiplied by num' do
     expect(recursive_multiplier([1, 2, 3], 3)).to eq [3, 6, 9]
