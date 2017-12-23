@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../reverse_a_string'
+require_relative '../../frontend_masters_challenges/reverse_a_string'
 
 describe '#reverse_a_string' do
 
