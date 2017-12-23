@@ -5,7 +5,9 @@ def recursive_multiplier(arr, num)
   n = arr.length - 1
   i = 0
   while i < n
-
+    m = arr[i] * num
+    new_arr << m
     i += 1
   end
+  return new_arr
 end
