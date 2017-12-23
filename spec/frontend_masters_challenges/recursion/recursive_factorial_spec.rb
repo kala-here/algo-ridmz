@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../recursive_factorial'
+require_relative '../../../frontend_masters_challenges/recursion/factorial'
 
 describe '#recursive_factorial' do
 

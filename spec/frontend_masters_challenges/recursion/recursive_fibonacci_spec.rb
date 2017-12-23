@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../recursive_fibonacci'
+require_relative '../../../frontend_masters_challenges/recursion/fibonacci'
 
 describe '#recursive_fibonacci' do
 

@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../shifted_array_search'
+require_relative '../../pramp/shifted_array_search'
 
 
 describe '#shifted_array_search' do
