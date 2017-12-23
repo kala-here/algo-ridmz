@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../recursive_flatten_the_array'
+require_relative '../../../frontend_masters_challenges/recursion/flatten_the_array'
 
 describe '#recursive_flatten_the_array' do
 
