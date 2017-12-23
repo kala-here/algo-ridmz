@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../../pramp/bracket_match'
+require_relative '../../pramp_challenges/bracket_match'
 
 describe '#bracket_match' do
   let(:str) { ")" }

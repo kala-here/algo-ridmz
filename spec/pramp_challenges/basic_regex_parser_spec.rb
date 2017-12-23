@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../../pramp/basic_regex_parser'
+require_relative '../../pramp_challenges/basic_regex_parser'
 
 describe '#is_match' do
 
