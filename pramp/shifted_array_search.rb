@@ -75,7 +75,7 @@ def binary_search(arr, start, finish, num)
       return mid
     # if mid value is greater than num, create new sub array starting before mid
     else
-      finish = mid - 1 #
+      finish = mid - 1
     end
   end
   # otherwise, num is not in array and we return -1 for the record
