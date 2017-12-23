@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../number_of_paths'
+require_relative '../../pramp/number_of_paths'
 
 describe '#num_of_paths_to_dest' do
   let(:num) { 1 }
