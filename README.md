@@ -29,12 +29,12 @@ end
 Recursion Recipe:
 ```ruby
 def callMyself()
-	if # base case
-        return
-    else
-    	# recursive case
-        callMyself()
-    end
-    return
+	if <base case>
+    return <output>
+  else
+  	# recursive case
+    callMyself(<new arguments>)
+  end
+  return <output>
 end
 ```
