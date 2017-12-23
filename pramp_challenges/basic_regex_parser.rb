@@ -19,33 +19,7 @@
   # if (pattern does not include * or .) & (does not match text) RETURN false
 
 # else push into stacks: text_stack & pattern_stack
-
-
-class Stack
-
-  def initialize(str)
-    @list = str.split(//)
-  end
-
-  def pop
-    @list.pop
-  end
-
-  def push(element)
-    @list.push(element)
-    self
-  end
-
-  def size
-    @list.length
-  end
-
-  def peek
-    @list[@list.size - 1]
-  end
-
-end
-
+require_relative '../stack'
 
 
 def recursive_compare_stacks(tex, patt)
