@@ -30,11 +30,11 @@ Recursion Recipe:
 ```ruby
 def callMyself()
   if # base case
-    return output
+    return
   end
   if # recursive case
     return callMyself()
   end
-  return output
+  return
 end
 ```
