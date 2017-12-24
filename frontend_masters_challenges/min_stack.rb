@@ -8,7 +8,7 @@ def min_stack(arr)
   # Initialize min_track with first apparent lowest
   min_track.push(stack.pop)
   while stack.size != 0
-    if min_track.peek <= stack.peek
+    if min_track.peek >= stack.peek
       min_track.push(stack.pop)
     else
       min_track.push(min_track.peek)
