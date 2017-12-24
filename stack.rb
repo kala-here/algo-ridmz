@@ -1,7 +1,12 @@
 class Stack
 
-  def initialize(str)
-    @list = str.split(//)
+  def initialize(items)
+    if items.class == String
+      @list = items.split(//)
+    end
+    if items.class == Array
+      @list = items
+    end
   end
 
   def pop
