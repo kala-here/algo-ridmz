@@ -4,7 +4,7 @@ require_relative '../stack'
 
 def min_stack(arr)
   stack = Stack.new(arr)
-  min_track = Stack.new([]])
+  min_track = Stack.new([])
   # Initialize min_track with first apparent lowest
   min_track.push(stack.pop)
   while stack.size != 0
