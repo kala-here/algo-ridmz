@@ -34,23 +34,23 @@ class Trie
     @root_node = {}
   end
 
-  def check_if_present_or_add(word)
+  def visited?(url)
     curr_node = @root_node
-    new_word_stat = false
-    # for each char, check if it exists as a key already in current location of nested hash, if not: make it a new key and mark this as a new word
-    word.each_char do |char|
+    has_url_been_visited = true
+    # for each char, check if it exists as a key already in current location of nested hash, if not: make it a new key and mark this as a new url
+    url.each_char do |char|
       if !curr_node.key? char
-        new_word_stat = true
+        has_url_been_visited = false
         curr_node[char] = {}
       end
       curr_node = curr_node[char]
     end
-    # Make sure that the end of the word is noted
+    # Make sure that the end of the url is noted so that is 'aws.com/ec2' was visited before, visiting 'aws.com' will still be available as an unvisited url
     if !curr_node.key? "End of input"
-      new_word_stat = true
+      has_url_been_visited = false
       curr_node["End of input"] = {}
     end
-    return new_word_stat
+    return has_url_been_visited
   end
 
 end
