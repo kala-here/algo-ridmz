@@ -36,8 +36,21 @@ class Trie
 
   def check_if_present_or_add(word)
     curr_node = @root_node
-    new_word = false
-    
+    new_word_stat = false
+    # for each char, check if it exists as a key already in current location of nested hash, if not: make it a new key and mark this as a new word
+    word.each_char do |char|
+      if !curr_node.key? char
+        new_word_stat = true
+        curr_node[char] = {}
+      end
+      curr_node = curr_node[char]
+    end
+    # Make sure that the end of the word is noted
+    if !curr_node.key? "End of input"
+      new_word_stat = true
+      curr_node["End of input"] = {}
+    end
+    return new_word_stat
   end
 
 end
