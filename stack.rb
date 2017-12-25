@@ -1,5 +1,7 @@
 class Stack
 
+  attr_accessor :list
+
   def initialize(items)
     if items.class == String
       @list = items.split(//)
