@@ -9,6 +9,22 @@
 # ______________________________________________________
 
 # PSEUDOCODE
-# 1. First off, I would outsource the storage so that it lives in the cloud where I can monitor and scale the space to what I need.
-# 2. Create a nested hash. First keys might be 'www.' or '' if there is no 'www.'
-# 3. Keys after that would be the domain name. Example 'google.com' or 'aws.com'
+# 1. First off, I would outsource the storage so that it lives in the cloud where I can monitor and scale the space to what I need without going to my parents house.
+# 2. Then, I would create a trie as a hash that follows each letter of a url as it creates a new path or follows an existing one meaning it is visited. This would ensure that we don't use up any duplicate space except for all of the top level domains like '.com' that will get used over and over.
+
+# Example:
+
+                          #    w
+                          #    w
+                          #    w
+                          #    .
+                          #  g   t
+                          #  o   e
+                          #  o  x n
+                          #  g  t t
+                          #  l  i s
+                          #  e  o .
+                          #  .  . c
+                          #  c  c o
+                          #  o  o m
+                          #  m  m
