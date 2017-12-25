@@ -7,6 +7,15 @@ describe '#visited?' do
     expect(this.visited?('www.google.com')).to eq false
   end
   it 'returns a boolean' do
+    this.visited?('www.google.com')
     expect(this.visited?('www.google.com')).to eq true
+  end
+  it 'returns a boolean' do
+    this.visited?('www.gordon.com')
+    expect(this.visited?('www.google.com')).to eq false
+  end
+  it 'returns a boolean' do
+    this.visited?('www.textio.com')
+    expect(this.visited?('www.google.com')).to eq false
   end
 end
