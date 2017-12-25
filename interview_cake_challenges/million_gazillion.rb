@@ -28,3 +28,16 @@
                           #  c  c o
                           #  o  o m
                           #  m  m
+class Trie
+
+  def initialize
+    @root_node = {}
+  end
+
+  def check_if_present_or_add(word)
+    curr_node = @root_node
+    new_word = false
+    
+  end
+
+end
