@@ -9,5 +9,6 @@
 # ______________________________________________________
 
 # PSEUDOCODE
-# First off, I would outsource the storage so that it lives in the cloud where I can monitor and scale the space to what I need.
-# Second, so that I am not paying more than I need to, I would 
+# 1. First off, I would outsource the storage so that it lives in the cloud where I can monitor and scale the space to what I need.
+# 2. Second, so that I am not paying more than I need to, I would start trimming off unnecessary characters like 'www.' & '.com' (taking off the '.com' could get confusing like if there is a website called 'aws.com' and it has a tail of '/ec2', making it 'aws.com/ec2' and there is another website that is 'awsec2.com' and you take out the '.com'... Oh but then you would still have the '/' so it would not store them as the same)
+# 3. Then, if I have any duplicate websites with different tails
