@@ -4,20 +4,19 @@
 
 # Your method should return the new head of the list.
 
-def reverse_linked_list(node)
+def reverse_linked_list(head)
 
+  current = head
+  prev = nil
+  next_node = nil
+
+  while current
+    next_node = current.next
+    current.next = prev
+    prev = current
+    current = next_node
+  end
+
+  return prev
 
 end
-
-__END__
-head = node
-
-
-
-[1,2,3,4,5]
-
-[1,2,3,5,4]
-#
-[1,2,5,4,3]
-[1,5,4,3,2]
-[5,4,3,2,1]
