@@ -10,7 +10,5 @@
 
 # PSEUDOCODE
 # 1. First off, I would outsource the storage so that it lives in the cloud where I can monitor and scale the space to what I need.
-# 2. Second, so that I am not paying more than I need to, I would start trimming off unnecessary characters like 'www.' & '.com' (taking off the '.com' could get confusing like if there is a website called 'aws.com' and it has a tail of '/ec2', making it 'aws.com/ec2' and there is another website that is 'awsec2.com' and you take out the '.com'... Oh but then you would still have the '/' so it would not store them as the same)
-# 3. Then, if I have any duplicate websites with different tails, like 'aws.com/ec2' & 'aws.com/s3', they would get trimmed down to a key of 'aws' and values of '/ec2' and '/s3'
-# 4. When storing the values, we can get rid of the '/'
-# 5. Everything after .com will stay together as one value, minus the forward slashes. So 'aws.com/ec2/containers/description' no becomes a key of aws and value of 'ec2containersdescription'
+# 2. Create a nested hash. First keys might be 'www.' or '' if there is no 'www.'
+# 3. Keys after that would be the domain name. Example 'google.com' or 'aws.com'
