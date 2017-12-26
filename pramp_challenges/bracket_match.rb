@@ -38,8 +38,12 @@ def bracket_match(str)
       opening.push(brackets.pop)
     end
     if brackets.peek == ')'
+      p 'hit here'
+      p opening.peek
       if opening.peek == '('
+        p opening.size
         opening.pop
+        p opening.size
         brackets.pop
       else
         closing.push(brackets.pop)
