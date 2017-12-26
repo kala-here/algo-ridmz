@@ -20,6 +20,7 @@ require_relative ' ../../../stack'
 # each '(' gets pushed into one stack and each ')' gets pushed into another stack
 # the diff between the two stack sizes is our output
 # I think this will be less time and to save on space, we could pop off every time there is a pair...
+# We have to take into consideration the order in which each peren comes
 
 def bracket_match(str)
   brackets = Stack.new(str)
