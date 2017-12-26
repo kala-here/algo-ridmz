@@ -35,11 +35,14 @@ def bracket_match(str)
   closing = Stack.new('')
 
   while brackets.size > 0
+    p brackets
     if brackets.peek == '('
       opening.push(brackets.pop)
     end
+
     if brackets.peek == ')'
-      if opening.size != nil
+      p opening.size
+      if opening.size != 0
         opening.pop
         brackets.pop
       else
