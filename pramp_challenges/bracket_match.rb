@@ -23,4 +23,23 @@ require_relative ' ../../../stack'
 
 def bracket_match(str)
   brackets = Stack.new(str)
+  opening = Stack.new('')
+  closing = Stack.new('')
+  while brackets.size > 0
+    if brackets.peek == '('
+      opening.push(brackets.pop)
+    end
+    if brackets.peek == ')'
+      closing.push(brackets.pop)
+    end
+    if brackets.peek != '(' && brackets.peek != ')'
+      brackets.pop
+    end
+  end
+  if opening.size >= closing.size
+    diff = opening.size - closing.size
+  else
+    diff = closing.size - opening.size
+  end
+  return diff
 end
