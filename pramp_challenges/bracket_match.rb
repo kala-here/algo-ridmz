@@ -22,6 +22,13 @@ require_relative ' ../../../stack'
 # I think this will be less time and to save on space, we could pop off every time there is a pair...
 # We have to take into consideration the order in which each peren comes
 
+# If we are keeping track of the order, for every closing bracket, there has to be one opening available for a pair before it.
+# So when we peek and see an opening bracket, we push into the opening stack
+# when we peek and see a closing bracket, we peek into the opening stack, if not nil, pop it off into the void as well as the closing bracket.
+# if there is no opening bracket for a pair, push closing bracket into closing array
+# now, instead of finding the difference between the two stacks, we will add them together for the output
+
+
 def bracket_match(str)
   brackets = Stack.new(str)
   opening = Stack.new('')
@@ -31,16 +38,17 @@ def bracket_match(str)
       opening.push(brackets.pop)
     end
     if brackets.peek == ')'
-      closing.push(brackets.pop)
+      if opening.peek == '('
+        opening.pop
+        brackets.pop
+      else
+        closing.push(brackets.pop)
+      end
     end
     if brackets.peek != '(' && brackets.peek != ')'
       brackets.pop
     end
   end
-  if opening.size >= closing.size
-    diff = opening.size - closing.size
-  else
-    diff = closing.size - opening.size
-  end
-  return diff
+  sum_of_missing = opening.size + closing.size
+  return sum_of_missing
 end
