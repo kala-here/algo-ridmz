@@ -33,10 +33,35 @@ def bracket_match(str)
   brackets = Stack.new(str)
   opening = Stack.new('')
   closing = Stack.new('')
+
   while brackets.size > 0
     if brackets.peek == '('
       opening.push(brackets.pop)
     end
+    if brackets.peek == ')'
+      if opening.size != nil
+        opening.pop
+        brackets.pop
+      else
+        closing.push(brackets.pop)
+      end
+    end
+    if brackets.peek != '(' && brackets.peek != ')'
+      brackets.pop
+    end
+  end
+  p opening.list
+  p closing.list
+  return opening.size + closing.size
+end
+
+__END__
+
+  while brackets.size > 0
+    if brackets.peek == '('
+      opening.push(brackets.pop)
+    end
+    p brackets.peek
     if brackets.peek == ')'
       p 'hit here'
       p opening.peek
