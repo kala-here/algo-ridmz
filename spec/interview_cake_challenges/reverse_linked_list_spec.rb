@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../../interview_cake_challenges'
+require_relative '../../interview_cake_challenges/reverse_linked_list'
 
 describe '#reverse_linked_list' do
 
