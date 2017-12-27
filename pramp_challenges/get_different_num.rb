@@ -21,4 +21,14 @@ def get_different_num(arr)
       largest = item
     end
   end
+  if hash[0] == nil
+    return 0
+  end
+  i = 1
+  while i <= largest + 1
+    if hash[i] == nil
+      return i
+    end
+    i += 1
+  end
 end
