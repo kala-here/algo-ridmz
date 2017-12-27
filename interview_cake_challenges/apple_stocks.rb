@@ -33,4 +33,11 @@
   # Else, find min from sub-arr of items BEFORE max (assign it to maxs_min)
   # find max of sub-arr after arr's original min (assign it to mins_max)
   # compare mins_max to maxs_min, return the larger number
-  
+
+  def get_max_profit(arr)
+    min = arr.min
+    max = arr.max
+    if arr.index_of(max) > arr.index_of(min)
+      return max - min
+    end
+  end
