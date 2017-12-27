@@ -28,6 +28,7 @@
       j = i + 1
       while j < arr.length
         profit = arr[j] - arr[i]
+        p profit
         if profit > max_profit
           max_profit = profit
         end

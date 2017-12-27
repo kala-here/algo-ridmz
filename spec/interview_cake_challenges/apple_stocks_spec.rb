@@ -15,6 +15,6 @@ describe '#get_max_profit' do
 
   it 'returns the max profit' do
     stock_prices_yesterday = [12,20,0,3]
-    expect(get_max_profit(stock_prices_yesterday)).to eq 17
+    expect(get_max_profit(stock_prices_yesterday)).to eq 8
   end
 end
