@@ -14,7 +14,11 @@
 
 def get_different_num(arr)
   hash = {}
+  largest = 0
   arr.each do |item|
     hash[item] = item
+    if item > largest
+      largest = item
+    end
   end
 end
