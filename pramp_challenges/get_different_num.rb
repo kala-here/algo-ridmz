@@ -9,8 +9,8 @@
 # ___________________________________
 # PSEUDOCODE
 # With a hash table, we would not have to sort (modify) the array
-# This would allow us to have a time complexity of O(n), I believe. Space complexity of O(n) as well.
-# If we did a sorting method, the time complexity would be O(nlogn)
+# This would allow us to have a time complexity of O(n). Space complexity of O(1) as well.
+# If we did a sorting method, the time complexity would be O(nlogn) & space complexity would be O(n).
 
 def get_different_num(arr)
   hash = {}
