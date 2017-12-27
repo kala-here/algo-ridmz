@@ -28,7 +28,6 @@
       j = i + 1
       while j < arr.length
         profit = arr[j] - arr[i]
-        p profit
         if profit > max_profit
           max_profit = profit
         end
@@ -38,3 +37,7 @@
     end
     return max_profit
   end
+
+
+  # TIME COMPLEXITY = O(n^2) because there is a loop inside of a loop
+  # SPACE COMPLEXITY = O(n) because we are not creating new storage more than the arr
