@@ -13,7 +13,6 @@ def reverse(str)
   i = n
   while i >= 0
     new_str << arr[i]
-    p new_str
     i -= 1
   end
   return new_str
