@@ -23,6 +23,11 @@ describe '#get_max_profit' do
     expect(get_max_profit(stock_prices_yesterday)).to eq -1
   end
 
+  it 'returns the least amt of loss' do
+    stock_prices_yesterday = [12,12]
+    expect(get_max_profit(stock_prices_yesterday)).to eq 0
+  end
+
   it 'returns an error if arr.length is too short' do
     expect(get_max_profit([1])).to eq "Cannot calculate a profit due to a lack of data."
   end
