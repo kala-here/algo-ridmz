@@ -7,3 +7,7 @@
 
 # Solve first for the case when you’re NOT allowed to modify the input arr. If successful and still have time, see if you can come up with an algorithm with an improved space complexity when modifying arr is allowed. Do so without trading off the time complexity.
 # ___________________________________
+# PSEUDOCODE
+# With a hash table, we would not have to sort (modify) the array
+# This would allow us to have a time complexity of O(n), I believe. Space complexity of O(n) as well.
+# If we did a sorting method, the time complexity would be O(nlogn)
