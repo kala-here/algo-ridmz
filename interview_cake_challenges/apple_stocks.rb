@@ -14,3 +14,23 @@
 # returns 6 (buying for $5 and selling for $11)
 
 # No "shorting"—you must buy before you sell. You may not buy and sell in the same time step (at least 1 minute must pass).
+# _____________________________
+# PSEUDOCODE
+# Our goal is to first find the min & then the max after that min and the diff between the two?
+  # but then what if the biggest diff is not related to the min of the arr?
+  # For example: [3, 10, 0, 1]
+  # ^ in this case, the biggest diff is between 3 & 10...
+
+# So based on that, I would say that we need to find the max PAST each item we are looking at and find the diff between current_item and max_past_it. This sounds expensive on time... but I am going to start coding and see if I can optimize later
+# An example of what this will look like:
+  # [4,9,3,10,12,20,0,3]
+  # so first we find the max in the whole arr => 20
+  # 4 & 20 => 16
+  # 9 & 20 => 11
+  # 3 & 20 => ...
+# So based on this... we want to find the max and min of the arr
+  # If max comes after min, return difference ** BASE CASE (OR FASTEST CASE)
+  # Else, find min from sub-arr of items BEFORE max (assign it to maxs_min)
+  # find max of sub-arr after arr's original min (assign it to mins_max)
+  # compare mins_max to maxs_min, return the larger number
+  
