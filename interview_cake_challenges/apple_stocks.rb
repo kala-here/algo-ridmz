@@ -16,42 +16,24 @@
 # No "shorting"—you must buy before you sell. You may not buy and sell in the same time step (at least 1 minute must pass).
 # _____________________________
 # PSEUDOCODE
-# Our goal is to first find the min & then the max after that min and the diff between the two?
-  # but then what if the biggest diff is not related to the min of the arr?
-  # For example: [3, 10, 0, 1]
-  # ^ in this case, the biggest diff is between 3 & 10...
-
-# So based on that, I would say that we need to find the max PAST each item we are looking at and find the diff between current_item and max_past_it. This sounds expensive on time... but I am going to start coding and see if I can optimize later
-# An example of what this will look like:
-  # [4,9,3,10,12,20,0,3]
-  # so first we find the max in the whole arr => 20
-  # 4 & 20 => 16
-  # 9 & 20 => 11
-  # 3 & 20 => ...
-# So based on this... we want to find the max and min of the arr
-  # If max comes after min, return difference ** BASE CASE (OR FASTEST CASE)
-  # Else, find min from sub-arr of items BEFORE max (assign it to maxs_min)
-  # find max of sub-arr after arr's original min (assign it to mins_max)
-  # compare mins_max to maxs_min, return the larger number
+# My first thought was that min and max of arr were relevant. They're not.
+# Example: [20,2,6,1,0]
+# The max profit here lies between 2 & 6. Neither of those are related to the min or max efficiently.
+# Now, I am thinking that we do have to iterate through each item and compare with every item after it.
 
   def get_max_profit(arr)
-    min = arr.min
-    max = arr.max
-    if arr.index(max) > arr.index(min)
-      return max - min
+    i = 0
+    max_profit = nil
+    while i < arr.length
+      j = i + 1
+      while j < arr.length
+        profit = arr[j] - arr[i]
+        if profit > max_profit
+          max_profit = profit
+        end
+        j += 1
+      end
+      i += 1
     end
-    # find min before max
-    before_max_sub_arr = arr[0..arr.index(max)]
-    min_before_max = before_max_sub_arr.min
-    max_profit_before_max = max - min_before_max
-    # find max after min
-    after_min_sub_arr = arr[arr.index(min)..arr[arr.length - 1]]
-    max_after_min = after_min_sub_arr.max
-    max_profit_after_min = max_after_min - min
-    if max_profit_after_min > max_profit_before_max
-      return max_profit_after_min
-    else
-      return max_profit_before_max
-    end
-
+    return max_profit
   end
