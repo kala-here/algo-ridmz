@@ -22,8 +22,11 @@
 # Now, I am thinking that we do have to iterate through each item and compare with every item after it.
 
   def get_max_profit(arr)
+    if arr.length < 2
+      return "Cannot calculate a profit due to a lack of data."
+    end
     i = 0
-    max_profit = 0
+    max_profit = arr[1] - arr[0]
     while i < arr.length
       j = i + 1
       while j < arr.length
