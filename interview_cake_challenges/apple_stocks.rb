@@ -37,7 +37,7 @@
   def get_max_profit(arr)
     min = arr.min
     max = arr.max
-    if arr.index_of(max) > arr.index_of(min)
+    if arr.index(max) > arr.index(min)
       return max - min
     end
   end
