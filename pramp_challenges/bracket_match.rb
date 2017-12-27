@@ -1,4 +1,4 @@
-require_relative ' ../../../stack'
+require_relative ' ../../../queue'
 # Bracket Match
 
 # A string of brackets is considered correctly matched if every opening bracket in the string can be paired up with a later closing bracket, and vice versa. For instance, “(())()” is correctly matched, whereas “)(“ and “((” aren’t. For instance, “((” could become correctly matched by adding two closing brackets at the end, so you’d return 2.
@@ -30,9 +30,9 @@ require_relative ' ../../../stack'
 
 
 def bracket_match(str)
-  brackets = Stack.new(str)
-  opening = Stack.new('')
-  closing = Stack.new('')
+  brackets = Queue.new(str)
+  opening = Queue.new('')
+  closing = Queue.new('')
 
   while brackets.size > 0
     p brackets
