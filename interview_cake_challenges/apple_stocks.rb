@@ -40,4 +40,18 @@
     if arr.index(max) > arr.index(min)
       return max - min
     end
+    # find min before max
+    before_max_sub_arr = arr[0..arr.index(max)]
+    min_before_max = before_max_sub_arr.min
+    max_profit_before_max = max - min_before_max
+    # find max after min
+    after_min_sub_arr = arr[arr.index(min)..arr[arr.length - 1]]
+    max_after_min = after_min_sub_arr.max
+    max_profit_after_min = max_after_min - min
+    if max_profit_after_min > max_profit_before_max
+      return max_profit_after_min
+    else
+      return max_profit_before_max
+    end
+
   end
