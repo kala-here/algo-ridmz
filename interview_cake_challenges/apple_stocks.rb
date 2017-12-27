@@ -23,7 +23,7 @@
 
   def get_max_profit(arr)
     i = 0
-    max_profit = nil
+    max_profit = 0
     while i < arr.length
       j = i + 1
       while j < arr.length
