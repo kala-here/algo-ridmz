@@ -35,13 +35,11 @@ def bracket_match(str)
   closing = Queue.new('')
 
   while brackets.size > 0
-    p brackets
     if brackets.peek == '('
       opening.push(brackets.pop)
     end
 
     if brackets.peek == ')'
-      p opening.size
       if opening.size != 0
         opening.pop
         brackets.pop
@@ -53,34 +51,5 @@ def bracket_match(str)
       brackets.pop
     end
   end
-  p opening.list
-  p closing.list
   return opening.size + closing.size
-end
-
-__END__
-
-  while brackets.size > 0
-    if brackets.peek == '('
-      opening.push(brackets.pop)
-    end
-    p brackets.peek
-    if brackets.peek == ')'
-      p 'hit here'
-      p opening.peek
-      if opening.peek == '('
-        p opening.size
-        opening.pop
-        p opening.size
-        brackets.pop
-      else
-        closing.push(brackets.pop)
-      end
-    end
-    if brackets.peek != '(' && brackets.peek != ')'
-      brackets.pop
-    end
-  end
-  sum_of_missing = opening.size + closing.size
-  return sum_of_missing
 end
