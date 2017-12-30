@@ -25,12 +25,11 @@
 def get_products_of_all_ints_except_at_index(arr)
   i = 0
   n = arr.length - 1
-  to_mult = []
   new_arr = []
   while i < n
+    to_mult = []
     if i == 0
       to_mult = arr[1..n]
-      p to_mult
     else
       arr[0...i].each do |item|
         to_mult << item
@@ -40,6 +39,7 @@ def get_products_of_all_ints_except_at_index(arr)
       end
     end
     product = 1
+    p to_mult
     to_mult.each do |x|
       product *= x
     end
