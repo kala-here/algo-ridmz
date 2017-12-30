@@ -26,7 +26,7 @@ def get_products_of_all_ints_except_at_index(arr)
   i = 0
   n = arr.length - 1
   new_arr = []
-  while i < n
+  while i <= n
     to_mult = []
     if i == 0
       to_mult = arr[1..n]
