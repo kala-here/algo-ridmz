@@ -8,7 +8,7 @@ describe '#get_products_of_all_ints_except_at_index' do
   end
 
   it 'return the products of all ints except at index' do
-    expect(get_products_of_all_ints_except_at_index([6, 4, 5, 3])).to eq [60, 90, 72]
+    expect(get_products_of_all_ints_except_at_index([6, 4, 5, 3])).to eq [60, 90, 72, 120]
   end
 
   it 'return the products of all ints except at index' do
@@ -16,7 +16,7 @@ describe '#get_products_of_all_ints_except_at_index' do
   end
 
   it 'return the products of all ints except at index' do
-    expect(get_products_of_all_ints_except_at_index([20, 60])).to eq nil
+    expect(get_products_of_all_ints_except_at_index([20, 60])).to eq [60, 20]
   end
 
   it 'return the products of all ints except at index' do
