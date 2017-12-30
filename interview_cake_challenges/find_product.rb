@@ -16,6 +16,12 @@
 #
 # Do not use division in your solution.
 
+# PSEUDOCODE
+# look at each index in the array
+# mulitply everything around it together
+# push that num into a new arr
+# return new arr
+
 def get_products_of_all_ints_except_at_index(arr)
 
 end
