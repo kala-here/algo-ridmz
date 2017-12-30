@@ -23,5 +23,23 @@
 # return new arr
 
 def get_products_of_all_ints_except_at_index(arr)
-
+  i = 0
+  n = arr.length - 1
+  to_mult = []
+  new_arr = []
+  while i < n
+    if i == 0
+      to_mult << arr[1..n]
+    else
+      arr[0...i].each do |item|
+        to_mult << item
+      end
+      arr [(i+1)..n].each do |item|
+        to_mult << item
+      end
+    end
+    new_arr << to_mult.reduce(:*)
+    i += 1
+  end
+  return new_arr
 end
