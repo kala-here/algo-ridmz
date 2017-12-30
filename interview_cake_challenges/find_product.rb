@@ -39,7 +39,6 @@ def get_products_of_all_ints_except_at_index(arr)
       end
     end
     product = 1
-    p to_mult
     to_mult.each do |x|
       product *= x
     end
