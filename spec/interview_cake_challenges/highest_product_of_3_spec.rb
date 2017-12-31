@@ -22,4 +22,9 @@ describe '#highest_product_of_3' do
   it 'returns the product of the 3 highest integers' do
     expect(highest_product_of_3([20, 60, 90])).to eq 108000
   end
+
+  it 'returns the product of the 3 highest integers' do
+    expect(highest_product_of_3([−10,−10,1,3,2])).to eq 300
+  end
+
 end
