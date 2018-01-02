@@ -24,6 +24,10 @@ describe '#highest_product_of_3' do
   end
 
   it 'returns the highest product of 3 ints' do
+    expect(highest_product_of_3([-20, 60, 90])).to eq -108000
+  end
+
+  it 'returns the highest product of 3 ints' do
     arr = [-10, -10, 1, 3, 2]
     expect(highest_product_of_3(arr)).to eq 300
   end
