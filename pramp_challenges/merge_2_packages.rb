@@ -19,21 +19,19 @@ def get_indices_of_item_weights(arr, limit)
       return []
     end
   end
-  sets = {}
+  lookup = {}
   indices = []
   i = 0
   while i < n
-    if sets[arr[i]]
-      sets[arr[i]] = 'double'
+    diff = limit - arr[i]
+    if lookup[diff]
+      indices << lookup[diff]
+      indices << i
+      return indices
     else
-      sets[arr[i]] = arr[i]
+      lookup[arr[i]] = i
     end
     i += 1
   end
-  p sets
-  i = 0
-  while i < n
-
-    i += 1
-  end
+  return indices
 end
