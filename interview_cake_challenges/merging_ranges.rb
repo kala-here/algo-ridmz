@@ -50,7 +50,8 @@ def merge_ranges(timeslots)
     else
       # if the end time is less the start time of the next lowest, they are separate and current array stays at it is/gets pushed into condensed_arr
       condensed_arr << first_meeting
-      first_meeting
+      first_meeting = current_meeting
     end
   end
+  return condensed_arr
 end
