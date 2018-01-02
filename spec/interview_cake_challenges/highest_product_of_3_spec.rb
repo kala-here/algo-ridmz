@@ -28,13 +28,11 @@ describe '#highest_product_of_3' do
   end
 
   it 'returns the highest product of 3 ints' do
-    arr = [-10, -10, 1, 3, 2]
-    expect(highest_product_of_3(arr)).to eq 300
+    expect(highest_product_of_3([-10, -10, 1, 3, 2])).to eq 300
   end
 
   it 'returns the highest product of 3 ints' do
-    arr = [−10, −9, -8, -7]
-    expect(highest_product_of_3(arr)).to eq -504
+    expect(highest_product_of_3([-20, -60, -90, -10])).to eq -12000
   end
 
 end
