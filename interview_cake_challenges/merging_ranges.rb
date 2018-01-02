@@ -35,26 +35,6 @@
 # Since we will always have to look at every item in the arr, O(n^2) is necessary and the best option I think. Same goes for O(n) space complexity.
 
 def merge_ranges(timeslots)
-  condensed_arr = []
-  new_range = []
-  arr = timeslots
-  first_meeting = arr.delete(arr.min)
-  # now find the next lowest start time and see if it is less than or equal to first_meeting_end. If it is, then we can merge the two
-  while arr.length > 0
-    first_meeting_end = first_meeting[1]
-    current_meeting = arr.delete(arr.min)
-    current_meeting_start = current_meeting[0]
-    p current_meeting_start
-    p first_meeting_end
-    if current_meeting_start <= first_meeting_end
-      p 'we hit'
-      new_range = [first_meeting[0], current_meeting[1]]
-      first_meeting = new_range
-    else
-      # if the end time is less the start time of the next lowest, they are separate and current array stays at it is/gets pushed into condensed_arr
-      condensed_arr << first_meeting
-      first_meeting = current_meeting
-    end
-  end
-  return condensed_arr
+  arr = timeslots.sort
+  p arr
 end
