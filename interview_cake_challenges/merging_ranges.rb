@@ -41,16 +41,16 @@ def merge_ranges(timeslots) # [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
   first_meeting = arr.delete(arr.min) # [0, 1]
   first_meeting_end = first_meeting[1] # 1
   # now find the next lowest start time and see if it is less than or equal to first_meeting_end. If it is, then we can merge the two
-  while arr.length != 0 # [[4, 8], [10, 12], [9, 10]]
-    current_meeting = arr.delete(arr.min) # [4,8]
-    current_meeting_start = current_meeting[0] # 4
-    if current_meeting_start <= first_meeting_end # 4 < 5 => true
-      new_range = [first_meeting[0], current_meeting[1]] # [3,8]
-      first_meeting = new_range # [3,8]
+  while arr.length != 0 # [[10, 12], [9, 10]]
+    current_meeting = arr.delete(arr.min) # [9,10]
+    current_meeting_start = current_meeting[0] # 9
+    if current_meeting_start <= first_meeting_end # 9 < 8 => false
+      new_range = [first_meeting[0], current_meeting[1]]
+      first_meeting = new_range
     else
       # if the end time is less the start time of the next lowest, they are separate and current array stays at it is/gets pushed into condensed_arr
-      condensed_arr << first_meeting
-      first_meeting = current_meeting
+      condensed_arr << first_meeting # [[0,1], [3,8]]
+      first_meeting = current_meeting # [9,10]
     end
   end
   return condensed_arr
