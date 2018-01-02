@@ -37,10 +37,10 @@
 
 
 def merge_ranges(timeslots)
-  arr = timeslots.sort
-  if arr.length == 1
+  if timeslots.length == 1
     return timeslots
   end
+  arr = timeslots.sort
   new_arr = []
   current_meeting = arr.delete_at(0)
   while arr.length > 0
@@ -53,6 +53,9 @@ def merge_ranges(timeslots)
     else
       new_arr << current_meeting
       current_meeting = next_meeting
+      if arr.length == 0
+        new_arr << current_meeting
+      end
     end
   end
   return new_arr
