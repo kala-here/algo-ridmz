@@ -3,6 +3,20 @@
 
 # Analyze the time and space complexities of your solution.
 
+# PSEUDOCODE
+# I will create a hash lookup (O(1)) then iterate over the arr to sum pairs up until we return the FIRST pair that sums up to limit or until we reach the end of the arr
+# to make sure that we don't add the item in the arr with itself, we will have to create a counter
+
 def get_indices_of_item_weights(arr, limit)
-  # your code goes here
+  n = arr.length
+  if arr.length < 2
+    return 'There are not enough items to sum up'
+  end
+  if n == 2
+    if arr[0] + arr[1] == limit
+      return [0,1]
+    else
+      return []
+    end
+  end
 end

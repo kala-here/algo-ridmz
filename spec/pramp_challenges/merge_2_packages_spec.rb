@@ -7,4 +7,12 @@ describe '#get_indices_of_item_weights' do
     expect(get_indices_of_item_weights([4, 6, 10, 15, 16], 21)).to eq [3, 1]
   end
 
+  it 'returns an empty array if no pair is found' do
+    expect(get_indices_of_item_weights([4, 6], 21)).to eq []
+  end
+
+  it 'returns an error message if there is less than 2 items in the arr' do
+    expect(get_indices_of_item_weights([4], 21)).to eq 'There are not enough items to sum up'
+  end
+
 end
