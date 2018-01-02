@@ -27,8 +27,13 @@
 # sort the arr, then find gaps in the arr and make new ranges based on that
 # time complexity for building the arr = O(n); for sorting it, it would be O(n*log(n)); for searching for gaps, it would be O(n) because we are going to be looking at each item in the array and it's neighbor. SO THE TIME COMPLEXITY WOULD BE O(N*LOG(N))
 # space complexity would be O(n) to build the new arr and again O(n) to build the new ranges. SO SPACE COMPLEXITY WOULD BE O(N)
-
+# -----------------------------------
+# Another way to look at this is to find the pattern
+# We would find the first meeting (the min of arr[i][0]) and say: if the end time of this meeting is greater than or equal to the start time of another meeting, merge those ranges (use start time of first and end time of other) and keep checking for this pattern until we have reached the end of the timeslots arr
+# TIME COMPLEXITY = O(n^2) because it is a nested arr and we have to look at every item in the arr
+# SPACE COMPLEXITY = O(n) to build the new arr
+# Since we will always have to look at every item in the arr, O(n^2) is necessary and the best option I think. Same goes for O(n) space complexity.
 
 def merge_ranges(timeslots)
-
+  
 end
