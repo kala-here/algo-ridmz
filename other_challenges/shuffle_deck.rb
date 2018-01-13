@@ -30,13 +30,11 @@ def shuffle_deck(deck)
 end
 
 def rand_num_of_cards_into_shuffling(shuffled_deck, deck_half)
-  while deck_half.length != 0
-    num_of_rand_cards = rand(1..4)
-    num_of_rand_cards.times do
-      if num_of_rand_cards <= deck_half.length
-        set = deck_half.pop
-        shuffled_deck << set
-      end
+  num_of_rand_cards = rand(1..3)
+  num_of_rand_cards.times do
+    if num_of_rand_cards <= deck_half.length
+      set = deck_half.pop
+      shuffled_deck << set
     end
   end
 end
