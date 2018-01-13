@@ -19,7 +19,7 @@ describe '#shuffle_deck' do
                 ] }
 
 
-  it 'stacks an array of cards and returns the same deck but shuffled' do
+  it 'tests to make sure that the returned deck is not in the same order as original deck' do
     expect(shuffle_deck(deck)).to eq
   end
 
