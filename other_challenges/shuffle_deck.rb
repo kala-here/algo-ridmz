@@ -20,27 +20,25 @@ def shuffle_deck(deck)
   cut = n/2 # => always 26
   half1 = deck[0..cut -1]
   half2 = deck[(cut)..-1]
-  # pop off random num of cards between (1-7) and push into shuffed_deck
+  # pop off random num of cards between (1-4) and push into shuffed_deck
   shuffled_deck = []
-  while half1.length != 0
-    num_of_rand_cards = rand(1..4)
-    num_of_rand_cards.times do
-      if num_of_rand_cards <= half1.length
-        set1 = half1.pop
-        shuffled_deck << set1
-      end
-    end
-    num_of_rand_cards2 = rand(1..4)
-    num_of_rand_cards2.times do
-      if num_of_rand_cards2 <= half2.length
-        set2 = half2.pop
-        shuffled_deck << set2
-      end
-    end
+  while shuffled_deck.length != 52
+    rand_num_of_cards_into_shuffling(shuffled_deck, half1)
+    rand_num_of_cards_into_shuffling(shuffled_deck, half2)
   end
   return shuffled_deck
 end
 
-p shuffle_deck(deck1)
-p shuffle_deck(deck1)
+def rand_num_of_cards_into_shuffling(shuffled_deck, deck_half)
+  while deck_half.length != 0
+    num_of_rand_cards = rand(1..4)
+    num_of_rand_cards.times do
+      if num_of_rand_cards <= deck_half.length
+        set = deck_half.pop
+        shuffled_deck << set
+      end
+    end
+  end
+end
+
 p shuffle_deck(deck1)
