@@ -23,16 +23,24 @@ def shuffle_deck(deck)
   # pop off random num of cards between (1-7) and push into shuffed_deck
   shuffled_deck = []
   while half1.length != 0
-    num_of_rand_cards = rand(1..7)
+    num_of_rand_cards = rand(1..4)
     num_of_rand_cards.times do
       if num_of_rand_cards <= half1.length
         set1 = half1.pop
-        p num_of_rand_cards
         shuffled_deck << set1
+      end
+    end
+    num_of_rand_cards2 = rand(1..4)
+    num_of_rand_cards2.times do
+      if num_of_rand_cards2 <= half2.length
+        set2 = half2.pop
+        shuffled_deck << set2
       end
     end
   end
   return shuffled_deck
 end
 
+p shuffle_deck(deck1)
+p shuffle_deck(deck1)
 p shuffle_deck(deck1)
