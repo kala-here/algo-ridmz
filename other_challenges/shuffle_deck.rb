@@ -21,7 +21,15 @@ def shuffle_deck(deck)
   half1 = deck[0..cut -1]
   half2 = deck[(cut)..-1]
   # pop off random num of cards between (1-7) and push into shuffed_deck
-  # return shuffled_deck
+  shuffled_deck = []
+  while half1.length != 0
+    rand(1..7).times do
+      set1 = half1.pop
+      p set1
+      shuffled_deck << set1
+    end
+  end
+  return shuffled_deck
 end
 
 p shuffle_deck(deck1)
